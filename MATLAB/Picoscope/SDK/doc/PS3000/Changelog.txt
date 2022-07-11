@@ -1,0 +1,12 @@
+Mon Jun 26 13:15:00 2017 ps3000 v3.9.0.6
+  * Cumulative fixes
+
+Thu Mar 26 11:45:24 2015 ps3000 v3.7.5.29
+  * Bug: Fast Streaming - triggerAt index might not be indicated in the correct overview buffer during data collection
+
+Thu Jan 29 16:01:42 2015 ps3000 v3.7.5.23
+  * Bug: SEH Exception
+
+Wed Dec 03 16:54:28 2014 ps3000 v3.7.5.14
+  * Bug: Serial number missing leading zeros
+

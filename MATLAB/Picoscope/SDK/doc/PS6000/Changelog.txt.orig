@@ -1,0 +1,88 @@
+Tue Apr 30 2019 ps6000 v2.1.17.1454
+  * Cumulative fixes
+
+Mon Jun 26 13:15:00 2017 ps6000 v1.6.0.11
+  * Cumulative fixes
+
+Tue Sep 08 09:18:26 2015 ps6000 v1.4.4.50
+  * Bug: ps6000EnumerateUnits returns PICO_OK when devices not found
+  * Bug: ps6000GetValuesOverlapped returns PICO_BUFFERS_NOT_SET for AVG & DEC
+  * Bug: PS6000 Streaming DEC & AVG doesn't work at all
+  * Bug: ps6000GetValuesAsync wrong data returned for average mode from streaming
+  * Bug: ps6000GetValuesAsync returns INVALID_PARAMETER for decimated mode from streaming
+  * Bug: ps6000GetValues overflow is not populated when using average mode
+
+Fri Aug 14 14:19:15 2015 ps6000 v1.4.4.49
+  * Bug 8183: Read bulk waveforms followed by individual waveforms the latter are incorrect.
+
+Wed Aug 05 15:01:59 2015 ps6000 v1.4.4.47
+  * Additional checks on the aux io settings
+
+Wed Aug 05 13:58:40 2015 ps6000 v1.4.4.46
+  * Bug: Enable the aux trigger with the signal generator
+  * Bug: Bulk read does not get the correct data for all waveforms
+
+Mon Jul 06 09:30:23 2015 ps6000 v1.4.4.45
+  * Bug: Rising_or_Falling edge is not always stabilized
+
+Thu Jun 25 12:44:58 2015 ps6000 v1.4.4.44
+  * Fix for corrupted firmware cache
+  * Fixed memory leak
+  * Fix for allowing api to run prematurely before all variables are initalised correctly.
+  * Bug: Data errors in trace streaming with PS6000
+
+Thu Mar 26 11:45:24 2015 ps6000 v1.4.4.42
+  * fix for low memory devices when looking for a trigger
+
+Mon Mar 09 13:56:58 2015 ps6000 v1.4.4.41
+  * Changed the getLatestValues streaming to stop chunking the data and improve lookup for min max values in one hit for each channel.
+  * Bug: Incorrect number of post-trigger samples returned after trigger event when streaming
+  * Found that the trigger data was calculated incorrectly for a lower memory devices
+
+Mon Feb 23 09:10:50 2015 ps6000 v1.4.4.40
+  * Bug: 6000 streaming bug causes picoscope to crash
+  * Bug: Application Crash - System.ArgumentOutOfRangeException indicating index out of range and Driver error
+
+Wed Dec 03 16:54:28 2014 ps6000 v1.4.4.24
+  * Fixed memory leaks.
+
+Thu Nov 27 14:21:44 2014 ps6000 v1.4.4.23
+  * Bug: Streaming mode isn't behaving as expected on 6000 devices
+
+Thu Nov 27 12:38:01 2014 ps6000 v1.4.4.21
+  * Bug: Application Lock Up - If the scope connection is removed while running Clamp Wizard
+
+Tue Nov 25 16:16:20 2014 ps6000 v1.4.4.20
+  * Bug: Data errors in trace using trigger delay and persistence with PS6000
+
+Tue Nov 25 11:42:40 2014 ps6000 v1.4.4.19
+  * Fix for trigger aggregation with low ratio
+
+Wed Nov 05 11:33:13 2014 ps6000 v1.4.4.16
+  * Bug: ps6000EnumerateUnits does not return serial number correctly for 6404 device
+
+Mon Oct 20 09:40:04 2014 ps6000 v1.4.4.14
+  * Bug: Stopping PS6000 rapid block before all are captured gives empty buffers
+
+Mon Oct 06 11:00:31 2014 ps6000 v1.4.4.13
+  * Bug: Streaming data collection - raw data corruption
+
+Mon Sep 29 09:41:57 2014 ps6000 v1.4.4.6
+  * Bug: "Check USB and power cables..." message displayed in loop with collection set for a small number of samples in block mode
+
+Tue Sep 23 10:19:50 2014 ps6000 v1.4.4.4
+  * Update for using the drivers with JNI interaction, seems that the stack memory was overflowing.
+
+Thu Sep 18 12:01:16 2014 ps6000 v1.4.4.3
+  * Bug: PS600 cannot collect more the 1 GS using SDK
+
+Fri Aug 29 13:10:05 2014 ps6000 v1.4.4.1
+  * Bug: 6000 series hang on sig gen change
+  * Bug: PS6 loses connection with device when enabling sig-gen
+  * Fix to sporadic lockups during transfers
+  * Fix to the firmware
+  * Bug: 6000 series hang on sig gen change
+
+Thu Jul 24 11:45:26 2014 ps6000 v1.4.2.2
+  * Fix for slow streaming where the downsampleratio is greater than the samples being downloaded for each packet
+

@@ -1,0 +1,92 @@
+Mon Jun 26 13:15:00 2017 ps2000a v1.3.0.14
+  * Cumulative fixes
+  * Support for new 2000 series scopes:
+  ** 2206B
+  ** 2207B
+  ** 2208B
+  ** 2405A
+  ** 2406B
+  ** 2407B
+  ** 2408B
+  ** 2205A MSO
+  ** 2206B MSO
+  ** 2207B MSO
+  ** 2208B MSO
+
+Thu May 21 16:13:00 2015 ps2000a v1.1.4.51
+  * Bug: Device does not auto-trigger in streaming mode
+  * Bug: Channel A Voltage range not set correctly on startup
+  * Driver was allowing the api access before all variables are initalised correctly.
+  * Bug: Digital data not written to buffer in streaming mode if channels C and D are switched off after all analogue and digital channels are enabled
+
+Wed Mar 18 15:33:34 2015 ps2000a v1.1.4.43
+  * Fix for low memory devices when looking for a trigger
+  * Changed the getLatestValues streaming to stop chunking the data and improve lookup for min max for each channel.
+  * Found that the trigger data was calculated incorrectly for low memory device
+  * Improvements to streaming performance for aggregation on low ratio.
+  * Calculate the number of set bits in each data sample
+  * Update to improve streaming
+
+Fri Feb 13 14:59:08 2015 ps2000a v1.1.4.41
+  * Bug: Application Crash - System.ArgumentOutOfRangeException indicating index out of range and Driver error
+
+Fri Feb 06 12:01:30 2015 ps2000a v1.1.4.39
+  * Bug: Slow sampling with PS2205MSO does not return all the required data
+
+Thu Jan 08 08:32:29 2015 ps2000a v1.1.4.28
+  * Bug: ETS trigger diamond not on waveform when threshold is non-zero
+  * Bug: ps2000aMaximumValue function not exported
+
+Wed Jan 07 14:37:55 2015 ps2000a v1.1.4.27
+  * Bug: Streaming - raw data corruption with 2205MSO analogue channels
+
+Wed Jan 07 09:08:34 2015 ps2000a v1.1.4.26
+  * Bug: Streaming - not all samples collected with 2205MSO when trigger is not enabled
+
+Wed Dec 03 16:54:28 2014 ps2000a v1.1.4.23
+  * Fixed memory leaks.
+  * Bug: Scope display blank after installing 6.9.16.3
+
+Thu Nov 27 12:38:01 2014 ps2000a v1.1.4.22
+  * Bug: Application Lock Up - If the scope connection is removed while running Clamp Wizard
+
+Mon Nov 03 10:54:00 2014 ps2000a v1.1.4.18
+  * Fixed PS2206 ets collection
+  * Fix for changing from repeat trigger and channel A and channel B are both enabled, then channel B is disabled
+  * Fix for ets trigger
+  * Bug: 2205MSO AWG Second Half doesn't update
+  * Fix ps2000a driver for PS2205MSO configuration
+  * Bug: Application lockup - when number of samples is being adjusted around 30MS with analogue channels switched off
+  * Fix for doing logic triggering with a pulse width qualifier on one of the channels
+  * Fix for window triggering and not reverseing the condition statement values when true or false.
+
+Mon Oct 06 11:00:31 2014 ps2000a v1.1.4.16
+  * Bug: Streaming data collection - raw data corruption
+  * Fix for calling the correct streaming function
+  * Fix for ets and streaming at slow sample intervals
+
+Fri Sep 26 12:12:52 2014 ps2000a v1.1.4.9
+  * Bug: PS2205MSO wrong segment limit
+
+Tue Sep 23 10:19:50 2014 ps2000a v1.1.4.4
+  * Fix siggen for ensuring that the delta phase is rounded in the correct direction and to the nearest intergral value.
+  * Update for using the drivers with JNI interaction, seems that the stack memory was overflowing.
+
+Thu Sep 18 12:01:16 2014 ps2000a v1.1.4.3
+  * Bug: Unplugging PS2205MSO causes PicoScope6 to hang
+  * Fix crashed data when using trigger delay and delay is greater than post-trigger samples
+  * Fix for crashed data and update for the signal generator
+
+Thu Aug 28 13:46:18 2014 ps2000a v1.1.2.8
+  * Bug: PS6 loses connection with device when enabling sig-gen
+  * Fix for trigger delay being less than stabalization delay.
+  * Fix for setting the awg when initialising
+  * Fix for PS2205MSO triggering incorrectly
+  * Ensure that only analogue channels write data to the pulse width states
+  * Minor fix in triggers
+  * Bug: Streaming data collection - raw data corruption
+
+Thu Jul 24 11:45:26 2014 ps2000a v1.1.2.4
+  * Fix for slow streaming where the downsampleratio is greater than the samples being downloaded for each packet
+  * Fix for updating when streaming has been stopped
+

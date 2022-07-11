@@ -1,0 +1,66 @@
+Mon Jun 26 13:15:00 2017 ps3000a v1.3.0.14
+  * Cumulative fixes
+
+Tue Sep 08 09:18:26 2015 ps3000a v1.4.4.60
+  * Bug: Read bulk waveforms followed by individual waveforms the latter are incorrect
+  * Bug: ps3000aGetMaxSegments returning fewer segments than expected
+  * Bug: Average data is incorrect for a PS3206MSO in all capture modes
+
+Thu Jun 25 12:44:58 2015 ps3000a v1.4.4.57
+  * Fix for firmware cache corruption
+
+Mon Feb 23 09:10:50 2015 ps3000a v1.4.4.51
+  * Bug: Application Crash - System.ArgumentOutOfRangeException indicating index out of range and Driver error
+
+Mon Feb 02 11:10:28 2015 ps3000a v1.4.4.46
+  * Bug: 3206MSO incorrect triggering in persistence mode
+
+Thu Jan 08 08:20:15 2015 ps3000a v1.4.4.36
+  * Bug: ETS trigger diamond not on waveform when threshold is non-zero
+
+Wed Jan 07 09:34:18 2015 ps3000a v1.4.4.35
+  * Bug: Unplugging device at startup causes infinite loop of power dialogs
+
+Wed Dec 03 16:54:28 2014 ps3000a v1.4.4.30
+  * Bug: "PicoScope has stopped working" - max samples and measurement turned on
+  * Fixed memory leaks.
+
+Tue Nov 25 10:46:17 2014 ps3000a v1.4.5.6
+  * Bug: External Input Trigger Source causes PicoScope to hang
+  * Fix for aggregation with a trigger
+  * Fix for opening device as using a nullptr to access a function.
+
+Mon Nov 24 09:22:23 2014 ps3000a v1.4.4.27
+  * Allow time base 0 if no digital or analogue channels enabled to keep in line with PS6
+
+Thu Nov 06 11:04:42 2014 ps3000a v1.4.4.26
+  * Removed GetMaxSegmentsV2 call: this was originally added during new PS3000A development
+
+Fri Oct 31 15:05:57 2014 ps3000a v1.4.4.22
+  * Fix for digital ports with PS3000AMSO
+
+Thu Oct 30 10:55:22 2014 ps3000a v1.4.4.21
+  * Update for external gain adjustment
+  * Added new PS3000A variants (including MSO)
+  * Bug: When changing from repeat trigger and channel A and channel B are both enabled, then channel B is disabled
+  * Fixed access violation when device isn't found with incorrect serial number (when EEPROM_CORRUPT)
+  * Update for apply fix for 2 channel variants
+  * Fixed memory leaks with external trigger
+
+Thu Oct 16 09:08:45 2014 ps3000a v1.4.4.19
+  * Fix for drop out triggers on the older PS3000A variants
+
+Mon Oct 06 11:00:31 2014 ps3000a v1.4.4.17
+  * Fix for ets and streaming at slow sample intervals
+
+Mon Sep 15 12:07:56 2014 ps3000a v1.4.4.4
+  * Bug: Enabling logic ports also enables ChA ETS circuit on PS3000A
+  * Bug: Digital Channels show low regardless of input level
+
+Thu Aug 28 13:46:18 2014 ps3000a v1.4.2.9
+  * Fix for pulse width triggering
+
+Thu Jul 24 11:45:26 2014 ps3000a v1.4.2.4
+  * Fixed missing exports
+  * Bug: Persistence mode doesn't work with older PS3000A variants
+

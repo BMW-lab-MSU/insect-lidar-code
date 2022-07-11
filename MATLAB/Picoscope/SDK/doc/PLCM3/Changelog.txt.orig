@@ -1,0 +1,10 @@
+Tue Apr 30 2019 plcm3 v2.0.17.1455
+  * Cumulative fixes
+
+Mon Jun 26 13:15:00 2017 plcm3 v1.1.0.7
+  * Cumulative fixes
+
+Wed Jul 29 14:56:03 2015 plcm3 v1.0.4.10
+  * Bug: Information returned from PLCM3Enumerate function adds colon to port number for Ethernet connected devices
+  * Bug: PLCM3Enumerate does not detect Ethernet connected devices when a CM3 is connected locally
+  * Bug: Call to PLCM3OpenUnit does not return status code PICO_NOT_FOUND if a device is not connected

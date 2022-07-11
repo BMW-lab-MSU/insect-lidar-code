@@ -1,0 +1,3 @@
+disp('testing_local_dir')
+
+movefile('/mnt/lustrefs/store/martin.tauc/MS_Research/Insect_Lidar/stored_data/2016-06-07/AMK_Ranch-094810','
