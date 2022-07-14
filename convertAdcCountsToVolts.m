@@ -1,4 +1,4 @@
-dataVolts = convertAdcCountsToVolts(rawData, metadata)
+function dataVolts = convertAdcCountsToVolts(rawData, metadata)
 % convertAdcCountsToVolts
 %
 % Convert raw ADC values from the Gage CS14200 ADC into volts.
@@ -17,3 +17,4 @@ normalizedAdcCount = (metadata.SampleOffset - double(rawData)) / metadata.Sample
 dataVolts = normalizedAdcCount * (metadata.InputRange / 2000) + dcOffsetVolts;
 
 % dataVolts = (((metadata.SampleOffset - double(rawData)) / metadata.SampleResolution) * (metadata.InputRange / 2000)) + dcOffsetVolts
+end
