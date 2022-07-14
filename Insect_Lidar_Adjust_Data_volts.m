@@ -28,7 +28,7 @@ rn_vec=1:size(runs,1);
 for rn = rn_vec
     clear vecs adjusted_data_junecal
     %scan folder: create vector of all files within folder
-    vecs=dir(fullfile(date_dir,runs(rn).name,'*.mat'));
+    vecs=dir(fullfile(date_dir,runs(rn).name,'*P*T*.mat'));
     %THIS BELOW SHOULD BE UNCOMMENTED FOR NEW PROCESSING
     %vecs=vecs(~ismember({vecs.name},['.','..','processed_data_junecal.mat','adjusted_data_junecal.mat','stats_junecal.mat']));
     % preallocate adjusted_data structure
