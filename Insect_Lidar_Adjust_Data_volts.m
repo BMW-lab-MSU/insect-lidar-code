@@ -14,7 +14,7 @@ date_dir=fullfile(data_dir, date);
 runs=dir(fullfile(date_dir, [scan_folder_prefix '*'])); %modify depending on data to adjust
 count = 1;
 for n = 1:size(runs,1)
-    if exist(fullfile(date_dir,runs(n).name,'adjusted_data_junecal.mat'),'file')
+    if exist(fullfile(date_dir,runs(n).name,'adjusted_data_junecal_volts.mat'),'file')
         remove(count) = n;
         count=count+1;
     end
