@@ -2,7 +2,7 @@
 % First script of the processing routines. This will take the raw data and
 % minimally process so that it can be interepreted.
 
-function []=Insect_Lidar_Adjust_Data_Trevor(data_dir, date, scan_folder_prefix)
+function []=Insect_Lidar_Adjust_Data_volts(data_dir, date, scan_folder_prefix)
 %% Folders in a date folder
 % define directory based on input date
 %stored_data = '/Users/elizabethrehbein/Documents_HD/Insect Lidar/data';
