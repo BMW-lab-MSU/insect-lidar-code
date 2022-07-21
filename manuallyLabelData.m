@@ -43,6 +43,7 @@ function [labels, timeSpent] = manuallyLabelData(basePath, date, scanName, dataF
         imagesc(data(imageNum).data);
         colormap(flipud(colormap('parula')));
         colorbar;
+        title("image " + num2str(imageNum))
 
         % pause so the image actually shows 
         % up...
@@ -70,7 +71,9 @@ function [labels, timeSpent] = manuallyLabelData(basePath, date, scanName, dataF
 
                 close(spectrumFigHandle);
 
-                labels = addInsectToLabels(labels, date, scanName, imageNum, startRow, endRow, startCol, endCol, confidence);
+                comments = input("Comments on the insect or your label decisions? ");
+
+                labels = addInsectToLabels(labels, date, scanName, imageNum, startRow, endRow, startCol, endCol, confidence, comments);
             else
                 % no more insects are present, so stop the loop
                 break;
@@ -214,15 +217,15 @@ function figHandle = plotInsectSpectrum(data, startRow, endRow, startCol, endCol
     figHandle = figure;
 
     subplot(2,1,1)
-    plot(data.time(startCol:endCol), insectRows, 'LineWidth', 1.5);
+    plot(data.time(startCol:endCol), insectRows, 'LineWidth', 1.2);
     xlabel('seconds');
     subplot(2,1,2)
-    plot(f, insectSpectrum, 'LineWidth', 1.5);
+    plot(f, insectSpectrum, 'LineWidth', 1.2);
     xlabel('hertz');
 
 end
 
-function labels = addInsectToLabels(labels, date, scanName, imageNum, startRow, endRow, startCol, endCol, confidence)
+function labels = addInsectToLabels(labels, date, scanName, imageNum, startRow, endRow, startCol, endCol, confidence, comments)
 
     labelData.date = date;
     labelData.scanName = scanName;
@@ -231,6 +234,7 @@ function labels = addInsectToLabels(labels, date, scanName, imageNum, startRow, 
     labelData.endRow = endRow;
     labelData.startCol = startCol;
     labelData.endCol = endCol;
+    labelData.comments = comments;
 
     if confidence > 0
         labelData.confidence = confidence;
