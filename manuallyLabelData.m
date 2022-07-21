@@ -1,4 +1,19 @@
-function labels = manuallyLabelData(basePath, date, scanName, dataFilename, structName)
+function [labels, timeSpent] = manuallyLabelData(basePath, date, scanName, dataFilename, structName)
+% manuallyLabelData Manually label insect lidar images
+%
+% Inputs:
+%   basePath                - path to where the date folders are
+%   date                    - the date folder where the images are located
+%   scanName                - name of the scan folder to label
+%   dataFilename (optional) - filename of the preprocessed mat file
+%   structName (optional)   - name of the data structure in the mat file
+%
+% Outputs:
+%   labels      - table of label information
+%   timeSpent   - how many seconds you spent labeling the data
+%
+% Example usage:
+%   manuallyLabelData('../data/msu-bee-hives', '2022-06-23', 'MSU-horticulture-farm-bees-122126')
     arguments 
         basePath (1,1) string;
         date (1,1) string;
@@ -6,6 +21,8 @@ function labels = manuallyLabelData(basePath, date, scanName, dataFilename, stru
         dataFilename (1,1) string = "adjusted_data_junecal_volts";
         structName (1,1) string = "adjusted_data_junecal"
     end
+
+    tic;
 
     % table to store label information
     labels = table();
@@ -37,7 +54,7 @@ function labels = manuallyLabelData(basePath, date, scanName, dataFilename, stru
         while true
 
             % prompt the user for inect presence
-            insectPresent = promptForInsectPresence();
+            insectPresent = promptForInsectPresence(imageNum, nImages);
 
             if insectPresent
                 % get insect details (row, start column, end column) from the user
@@ -59,11 +76,14 @@ function labels = manuallyLabelData(basePath, date, scanName, dataFilename, stru
                 break;
             end
         end
+
+        % save the labels after every image just in case something goes wrong...
+        % don't want to lose all that time staring at images...
+        writetable(labels, basePath + filesep + date + filesep + scanName + ...
+            filesep + "labels.csv");
     end
 
-    writetable(labels, basePath + filesep + date + filesep + scanName + ...
-        filesep + "labels.csv");
-
+    timeSpent = toc
 end
 
 function [startRow, endRow, startCol, endCol] = promptForInsectDetails()
@@ -131,13 +151,15 @@ function [startRow, endRow, startCol, endCol] = promptForInsectDetails()
             end
         end
     end
+
+
 end
 
-function insectPresent = promptForInsectPresence()
+function insectPresent = promptForInsectPresence(imageNum, nImages)
     inputIsInvalid = true;
 
     while inputIsInvalid
-        userInput = input("Are there any (more) potential insects in this image? ", "s");
+        userInput = input("Are there any (more) potential insects in this image? (" + num2str(imageNum) + " out of " + num2str(nImages) +") ", "s");
 
         if strcmpi(userInput, "y")
             inputIsInvalid = false;
@@ -155,7 +177,7 @@ function confidence = promptForInsectConfidence()
     inputIsInvalid = true;
 
     while inputIsInvalid
-        confidence = input("How likely is this an insect? 0--4: 0 -> not an insect, 4 --> definitely an insect ");
+        confidence = input("How likely is this an insect (0--4: 0 -> not an insect, 4 --> definitely an insect)? ");
 
         if 0 <= confidence <= 4
             inputIsInvalid = false;
@@ -177,7 +199,6 @@ function figHandle = plotInsectSpectrum(data, startRow, endRow, startCol, endCol
     insect = sum(insectRows);
 
     FFT_SIZE = 1024;
-%     FFT_SIZE = nextpow2(numel(insect));
 
     % compute the pulse reptition frequency, i.e. PRF, i.e. sampling frequency
     prf = 1/mean(diff(data.time));
