@@ -71,7 +71,7 @@ function [labels, timeSpent] = manuallyLabelData(basePath, date, scanName, dataF
 
                 close(spectrumFigHandle);
 
-                comments = input("Comments on the insect or your label decisions? ", "s");
+                comments = string(input("Comments on the insect or your label decisions? ", "s"));
 
                 labels = addInsectToLabels(labels, date, scanName, imageNum, startRow, endRow, startCol, endCol, confidence, comments);
             else
