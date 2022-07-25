@@ -69,7 +69,10 @@ function [labels, timeSpent] = manuallyLabelData(basePath, date, scanName, dataF
                 % prompt the user for their confidence in the potential insect
                 confidence = promptForInsectConfidence();
 
-                close(spectrumFigHandle);
+                try
+                    close(spectrumFigHandle);
+                catch ME
+                end
 
                 comments = string(input("Comments on the insect or your label decisions? ", "s"));
 
