@@ -2,7 +2,7 @@ function imageLabels = createImageLabelVector(csvFile, nImages)
 
     labelTable = readtable(csvFile);
 
-    imageLabels = false(nImages, 1);
+    imageLabels = false(1, nImages);
 
     nInsects = height(labelTable);
 
