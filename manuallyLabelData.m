@@ -111,7 +111,7 @@ function [startRow, endRow, startCol, endCol] = promptForInsectDetails()
 
         if restart
             continue;
-        end;
+        end
 
         while true
             endRow = input("Last row of inesct (0 to restart): ");
@@ -127,7 +127,7 @@ function [startRow, endRow, startCol, endCol] = promptForInsectDetails()
 
         if restart
             continue;
-        end;
+        end
 
         while true
             startCol = input("Starting column for insect (0 to restart): ");
@@ -143,7 +143,7 @@ function [startRow, endRow, startCol, endCol] = promptForInsectDetails()
 
         if restart
             continue;
-        end;
+        end
 
         while true
             endCol = input("Ending column for insect (0 to restart): ");
@@ -185,9 +185,8 @@ function confidence = promptForInsectConfidence()
     while inputIsInvalid
         confidence = input("How likely is this an insect (0--4: 0 -> not an insect, 4 --> definitely an insect)? ");
 
-        if 0 <= confidence <= 4
+        if (0 <= confidence) && (confidence <= 4)
             inputIsInvalid = false;
-            insectPresent = true;
         else
             inputIsInvalid = true;
             warning("invalid input: needs to be between 0 and 4");
