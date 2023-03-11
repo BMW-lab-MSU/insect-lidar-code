@@ -30,7 +30,7 @@ for rn = rn_vec
     %scan folder: create vector of all files within folder
     vecs=dir(fullfile(date_dir,runs(rn).name,'*.mat'));
     %THIS BELOW SHOULD BE UNCOMMENTED FOR NEW PROCESSING
-    vecs=vecs(~ismember({vecs.name},{'.','..','processed_data_junecal.mat','adjusted_data_junecal.mat','stats_junecal.mat'}));
+    vecs=vecs(~ismember({vecs.name},{'.','..','processed_data_junecal.mat','adjusted_data_decembercal.mat','adjusted_data_junecal.mat','stats_junecal.mat'}));
     % preallocate adjusted_data structure
     adjusted_data_junecal(size(vecs,1))=struct('tilt',[],'pan',[],'data',[],'time',[],'range',[],'filename',[],'normalized_data',[]);
     disp(['currently on file ', runs(rn).name])
